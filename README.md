@@ -18,6 +18,10 @@ Uma página estática com dois projetos documentados pelos números que o própr
 - **Tema claro e escuro** persistidos em `localStorage` sob a chave `portfolio.tema`, com respeito a `prefers-color-scheme` e `prefers-reduced-motion`.
 - **Números verificáveis.** Toda métrica exibida vem de contagem real no código ou de execução da demonstração, e os dados mostrados nos projetos são sintéticos e declarados como tal na página.
 
+## Apresentação
+
+`slides/controle-estoque-padaria.pptx` é o deck de 10 páginas do projeto de estoque, editável no PowerPoint. Ele fica aqui, e não no repositório do app, porque é material de apresentação.
+
 ## Rodar localmente
 
 Abrir `index.html` direto no navegador já funciona. Se preferir um servidor:

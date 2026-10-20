@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="escuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfólio · Automação de infraestrutura e analytics</title>
+<meta name="description" content="Dois projetos de TI que rodam sem build: um console de automação de identidade com Active Directory como código e um controle de estoque de padaria com analytics de perdas.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span>Portfólio</span>
+      <span class="dot">·</span>
+      <span>TI / automação</span>
+      <button class="theme-btn" type="button" id="tema" aria-label="Alternar tema">claro</button>
+    </div>
+    <h1>Automação e analytics que<br>abrem direto no navegador</h1>
+    <p class="lead">
+      Construo ferramentas internas completas sem build, sem backend e sem <code>npm install</code>:
+      estado declarativo, dados de demonstração determinísticos e a parte executável de verdade
+      — PowerShell gerado, CSV exportável, trilha de auditoria.
+    </p>
+    <div class="meta">
+      <a class="link" href="https://github.com/Vitorvieira42" target="_blank" rel="noopener">github.com/Vitorvieira42</a>
+      <span class="sep"></span>
+      <a class="link" href="#projetos">pular para os projetos</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="section" id="projetos">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">01</span> Projetos</h2>
+
+    <article class="project" id="console">
+      <div class="project-head">
+        <div>
+          <p class="kicker">Identidade &amp; diretório ativo</p>
+          <h3>Console de Automação de Identidade</h3>
+          <p class="tagline">Active Directory como código: declarar o estado desejado em vez de digitar comando.</p>
+        </div>
+        <div class="badges">
+          <span>JavaScript puro</span><span>Chart.js</span><span>PowerShell gerado</span><span>sem build</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="copy">
+          <p><strong>O problema.</strong> Concessão e revogação de acesso costumam viver em pedido verbal,
+          planilha de recertificação e memória de quem operou. Quando a auditoria pergunta quem aprovou o quê,
+          a resposta é um print.</p>
+          <p><strong>O que a ferramenta faz.</strong> Um estado desejado escrito em DSL própria é comparado com o
+          diretório; a diferença vira um plano ordenado, com risco por operação e assinatura em hash. O plano gera
+          PowerShell com <code>-WhatIf</code>, diário de reversão e transcript. Nada escreve no diretório sem
+          aprovação de uma pessoa diferente de quem abriu o pedido.</p>
+          <ul class="points">
+            <li>7 telas: painel, diretório, estado desejado, plano &amp; execução, script, governança e auditoria</li>
+            <li>Segregação de funções aplicada em código, com pares de grupos conflituosos bloqueados</li>
+            <li>Auditoria append-only acorrentada por hash, com botão que simula adulteração para provar a detecção</li>
+            <li>Reversão real: o diário gravado na aplicação alimenta o <code>Invoke-Revert</code></li>
+          </ul>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>11</strong><span>derivações no plano<br>parcial do snapshot</span></div>
+          <div class="metric"><strong>59,2%</strong><span>conformidade com<br>14 achados abertos</span></div>
+          <div class="metric"><strong>8</strong><span>regras de governança<br>+ 2 pares de SoD</span></div>
+          <div class="metric"><strong>4.343</strong><span>linhas em 11 arquivos<br>de código autoral</span></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://vitorvieira42.github.io/console-automacao-identidade/" target="_blank" rel="noopener">Abrir demo</a>
+        <a class="btn" href="https://github.com/Vitorvieira42/console-automacao-identidade" target="_blank" rel="noopener">Repositório</a>
+        <a class="btn" href="https://vitorvieira42.github.io/console-automacao-identidade/slides/console-automacao-identidade.pptx">Slides .pptx</a>
+      </div>
+    </article>
+
+    <article class="project" id="estoque">
+      <div class="project-head">
+        <div>
+          <p class="kicker">Operações &amp; analytics</p>
+          <h3>Controle de Estoque de Padaria</h3>
+          <p class="tagline">Perda, cobertura e reposição calculados com as fórmulas de quem trabalha no balcão.</p>
+        </div>
+        <div class="badges">
+          <span>JavaScript puro</span><span>Chart.js</span><span>PRNG determinístico</span><span>CSV</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="copy">
+          <p><strong>O problema.</strong> Em padaria o estoque vence em dias e a perda se esconde no
+          "consumo interno". Planilha genérica não separa quebra de avaria nem traduz saldo em dias de cobertura.</p>
+          <p><strong>O que a ferramenta faz.</strong> Um modelo de produtos, fornecedores e movimentações com
+          90 dias de histórico gerado por seed fixa, sobre o qual rodam seis KPIs e cinco gráficos que conversam
+          entre si — clicar numa fatia filtra a lista de produtos, e o ajuste de saldo vira movimento com rastro.</p>
+          <ul class="points">
+            <li>Reposição sugerida por <code>max(qtdMin × 2 − qtd, qtdMin)</code>, exportável como lista de compra</li>
+            <li>Saldo nunca negativo e SKU único: a validação barra a operação antes de gravar</li>
+            <li>Cobertura em dias com faixas de crítico e atenção, janela de validade configurável</li>
+            <li>Sazonalidade real por dia da semana, com sábado como pico de venda</li>
+          </ul>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>42</strong><span>produtos em<br>7 categorias</span></div>
+          <div class="metric"><strong>4.809</strong><span>movimentações<br>em 90 dias</span></div>
+          <div class="metric"><strong>6 + 5</strong><span>KPIs e gráficos<br>encadeados</span></div>
+          <div class="metric"><strong>3.180</strong><span>linhas próprias<br>sem dependência de CDN</span></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://vitorvieira42.github.io/controle-estoque-padaria/" target="_blank" rel="noopener">Abrir demo</a>
+        <a class="btn" href="https://github.com/Vitorvieira42/controle-estoque-padaria" target="_blank" rel="noopener">Repositório</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">02</span> Como eu trabalho</h2>
+    <div class="principles">
+      <div class="principle">
+        <h4>Entregável abre sem instalar nada</h4>
+        <p>Sem framework e sem toolchain: arquivos estáticos que funcionam abertos por <code>file://</code> e
+        hospedam em qualquer lugar. A barreira para experimentar o projeto é um clique.</p>
+      </div>
+      <div class="principle">
+        <h4>Dado de demonstração reproduzível</h4>
+        <p>Seed fixa e PRNG determinístico. A mesma versão sempre produz o mesmo snapshot, o que deixa
+        comparação, screenshot e conversa sobre números possíveis.</p>
+      </div>
+      <div class="principle">
+        <h4>Estado central, tela derivada</h4>
+        <p>Uma fonte de verdade e funções puras por cima. Toda view lê o mesmo estado, então não existe
+        divergência entre o que o painel mostra e o que o plano vai executar.</p>
+      </div>
+      <div class="principle">
+        <h4>Se escreve, tem que desfazer</h4>
+        <p>Dry-run antes de aplicar, diário do estado anterior, reversão pelo diário e auditoria que prova
+        que a trilha não foi reescrita. Isso vale para o AD simulado e para o ajuste de saldo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">03</span> Próximos passos</h2>
+    <ul class="roadmap">
+      <li><strong>Rodar o PowerShell gerado contra um controlador de domínio de laboratório</strong> e comparar o
+      transcript do <code>-WhatIf</code> com o plano previsto no console.</li>
+      <li><strong>Colocar <code>PSScriptAnalyzer</code> como portão de CI</strong> para o script gerado, e
+      <strong>ESLint</strong> para os módulos das duas aplicações.</li>
+      <li><strong>Importar um CSV real de PDV</strong> no controle de estoque e validar o motor de cálculo contra
+      números que não nasceram da seed.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Os dois projetos usam dados sintéticos de demonstração — nenhuma conta real de diretório, produto ou
+    fornecedor aparece aqui.</p>
+    <p class="sig"><span>Portfólio · projetos estáticos de TI</span>
+    <a class="link" href="https://github.com/Vitorvieira42" target="_blank" rel="noopener">github.com/Vitorvieira42</a></p>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
